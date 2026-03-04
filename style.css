@@ -1,4 +1,205 @@
+   RESPONSIVE
+============================== */
+@media (max-width: 1050px) {
+    .app-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-panel {
+        max-width: 700px;
+        width: 100%;
+    }
+
+    .card {
+        width: 620px;
+        height: 340px;
+    }
+
+    .official-logo {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 650px) {
+    .card {
+        width: 95vw;
+        height: auto;
+        aspect-ratio: 700 / 380;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .person-info h1 {
+        font-size: 20px;
+    }
+
+    .contact-row span {
+        font-size: 11px;
+    }
+
+    .address-block p {
+        font-size: 10px;
+    }
+}
+=======
 /* ==============================
+   SHARE BUTTON STYLES
+============================== */
+.share-section {
+    margin-top: 20px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.share-btn {
+    background: linear-gradient(135deg, #0d7068 0%, #5a9e1e 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn:active {
+    transform: translateY(0);
+}
+
+.share-btn i {
+    font-size: 16px;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 1050px) {
+    .app-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-panel {
+        max-width: 700px;
+        width: 100%;
+    }
+
+    .card {
+        width: 620px;
+        height: 340px;
+    }
+
+    .official-logo {
+        max-width: 180px;
+    }
+
+    .share-section {
+        width: 620px;
+    }
+}
+
+@media (max-width: 650px) {
+    .card {
+        width: 95vw;
+        height: auto;
+        aspect-ratio: 700 / 380;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .person-info h1 {
+        font-size: 20px;
+    }
+
+    .contact-row span {
+        font-size: 11px;
+    }
+
+    .address-block p {
+        font-size: 10px;
+    }
+
+    .qr-section, .share-section {
+        width: 95vw;
+    }
+
+    .app-container {
+        padding: 0 15px;
+        margin: 20px auto;
+        gap: 30px;
+    }
+
+    .form-panel {
+        padding: 24px;
+    }
+
+    .form-header h2 {
+        font-size: 20px;
+    }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    .card-left {
+        width: 60%;
+        padding: 24px 20px 20px 25px;
+    }
+
+    .card-right {
+        width: 40%;
+    }
+
+    .official-logo {
+        max-width: 160px;
+        margin-left: 15px;
+    }
+
+    .person-info h1 {
+        font-size: 18px;
+    }
+
+    .person-info h2 {
+        font-size: 12px;
+    }
+
+    .contact-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 9px;
+    }
+
+    .contact-row span {
+        font-size: 10px;
+    }
+
+    .address-block p {
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+    .share-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+}==============================
    RESET & GLOBAL
 ============================== */
 *,

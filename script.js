@@ -114,4 +114,89 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     updateCard();
+
+    // Share button functionality
+    const shareButton = document.getElementById('share-button');
+    if (shareButton) {
+        shareButton.addEventListener('click', () => {
+            // Get current card data
+            const cardData = {
+                name: inputs.name.value.trim(),
+                designation: inputs.designation.value.trim(),
+                phone: inputs.phone.value.trim(),
+                email: inputs.email.value.trim(),
+                location: inputs.location.value.trim()
+            };
+
+            // Create shareable URL with encoded data
+            const shareData = btoa(JSON.stringify(cardData));
+            const shareUrl = `${window.location.origin}${window.location.pathname}?data=${encodeURIComponent(shareData)}`;
+
+            // Generate QR code for sharing
+            const qrCodeData = generateVCard(cardData);
+
+            // Use Web Share API if available
+            if (navigator.share) {
+                navigator.share({
+                    title: `${cardData.name}'s Business Card`,
+                    text: `Check out ${cardData.name}'s digital business card`,
+                    url: shareUrl
+                })
+                .then(() => console.log('Share successful'))
+                .catch((error) => {
+                    if (error.name !== 'AbortError') {
+                        console.error('Error sharing:', error);
+                        // Fallback to clipboard
+                        fallbackShare(shareUrl, qrCodeData);
+                    }
+                });
+            } else {
+                // Fallback for browsers without Web Share API
+                fallbackShare(shareUrl, qrCodeData);
+            }
+        });
+    }
+
+    // Check URL for shared data on page load
+    function loadSharedData() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const sharedData = urlParams.get('data');
+
+        if (sharedData) {
+            try {
+                const decodedData = JSON.parse(atob(decodeURIComponent(sharedData)));
+                
+                // Populate form fields
+                if (decodedData.name) inputs.name.value = decodedData.name;
+                if (decodedData.designation) inputs.designation.value = decodedData.designation;
+                if (decodedData.phone) inputs.phone.value = decodedData.phone;
+                if (decodedData.email) inputs.email.value = decodedData.email;
+                if (decodedData.location) inputs.location.value = decodedData.location;
+
+                // Update card preview
+                updateCard();
+                
+                console.log('Loaded shared card data');
+            } catch (error) {
+                console.error('Error loading shared data:', error);
+            }
+        }
+    }
+
+    // Fallback share method (clipboard + alert)
+    function fallbackShare(shareUrl, qrCodeData) {
+        // Copy URL to clipboard
+        navigator.clipboard.writeText(shareUrl)
+            .then(() => {
+                alert(`Link copied to clipboard!\n\nYou can share this URL: ${shareUrl}`);
+            })
+            .catch((error) => {
+                console.error('Error copying to clipboard:', error);
+                // Show URL in a prompt if clipboard fails
+                prompt('Copy this URL to share:', shareUrl);
+            });
+    }
+
+    // Load shared data when page loads
+    loadSharedData();
 });

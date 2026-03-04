@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Share Functionality</title>
+    <script>
+        // Test the URL encoding/decoding functionality
+        function testShareFunctionality() {
+            const testData = {
+                name: "John Doe",
+                designation: "Software Engineer",
+                phone: "+1 555-123-4567",
+                email: "john@example.com",
+                location: "123 Main St\nAnytown, USA"
+            };
+
+            // Encode data (same as in script.js)
+            const encodedData = btoa(JSON.stringify(testData));
+            const testUrl = `?data=${encodeURIComponent(encodedData)}`;
+            
+            console.log("Test URL:", testUrl);
+            
+            // Decode data (same as in script.js)
+            const urlParams = new URLSearchParams(testUrl);
+            const sharedData = urlParams.get('data');
+            
+            if (sharedData) {
+                try {
+                    const decodedData = JSON.parse(atob(decodeURIComponent(sharedData)));
+                    console.log("Decoded data:", decodedData);
+                    
+                    if (JSON.stringify(decodedData) === JSON.stringify(testData)) {
+                        console.log("✅ Share functionality test PASSED!");
+                        document.body.innerHTML = `<h2>✅ Share functionality test PASSED!</h2>
+                        <p>Data encoding/decoding works correctly.</p>
+                        <p>Test URL: <code>${testUrl}</code></p>`;
+                    } else {
+                        console.log("❌ Share functionality test FAILED!");
+                        document.body.innerHTML = `<h2>❌ Share functionality test FAILED!</h2>
+                        <p>Decoded data doesn't match original.</p>`;
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    document.body.innerHTML = `<h2>❌ Share functionality test FAILED!</h2>
+                    <p>Error: ${error.message}</p>`;
+                }
+            } else {
+                console.log("❌ Share functionality test FAILED!");
+                document.body.innerHTML = `<h2>❌ Share functionality test FAILED!</h2>
+                <p>No data found in URL.</p>`;
+            }
+        }
+        
+        // Run test when page loads
+        window.onload = testShareFunctionality;
+    </script>
+</head>
+<body>
+    <h2>Testing share functionality...</h2>
+</body>
+</html>
