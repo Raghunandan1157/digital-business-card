@@ -846,3 +846,125 @@ body {
         font-size: 10px;
     }
 }
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    .card-left {
+        width: 60%;
+        padding: 20px 16px 16px 20px;
+    }
+
+    .card-right {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .official-logo {
+        max-width: 140px;
+        max-height: 180px;
+        object-fit: contain;
+        margin-left: 10px;
+    }
+
+    .person-info h1 {
+        font-size: 18px;
+        margin-bottom: 1px;
+    }
+
+    .person-info h2 {
+        font-size: 12px;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 8px;
+    }
+
+    .contact-row span {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    .address-block p {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .share-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+    /* Hide JSON block on mobile to save space */
+    .json-block {
+        display: none;
+    }
+
+    /* Make card more compact */
+    .card {
+        height: auto;
+        min-height: 300px;
+    }
+
+    /* Adjust contact details spacing */
+    .contact-details {
+        gap: 10px;
+    }
+
+    /* Make form more compact on mobile */
+    .form-panel {
+        padding: 20px;
+    }
+
+    .form-header h2 {
+        font-size: 18px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .card-left {
+        width: 65%;
+        padding: 16px 12px 12px 16px;
+    }
+
+    .card-right {
+        width: 35%;
+    }
+
+    .official-logo {
+        max-width: 120px;
+        max-height: 160px;
+        margin-left: 8px;
+    }
+
+    .person-info h1 {
+        font-size: 16px;
+    }
+
+    .contact-row span {
+        font-size: 10px;
+    }
+
+    .address-block p {
+        font-size: 9px;
+    }
+
+    /* Make card even more compact */
+    .card {
+        min-height: 280px;
+    }
+
+    /* Adjust preview panel */
+    .preview-panel {
+        padding: 0 10px;
+    }
+}
