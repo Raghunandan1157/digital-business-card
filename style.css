@@ -213,6 +213,7 @@ body {
     position: relative;
     z-index: 2;
     display: flex;
+    flex-wrap: nowrap;
     width: 100%;
     height: 100%;
 }
@@ -220,6 +221,7 @@ body {
 /* ----- LEFT SIDE (Teal area with info) ----- */
 .card-left {
     width: 55%;
+    min-width: 55%;
     padding: 32px 30px 25px 35px;
     display: flex;
     flex-direction: column;
@@ -298,6 +300,7 @@ body {
 /* ----- RIGHT SIDE (White area with logo) ----- */
 .card-right {
     width: 45%;
+    min-width: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -560,10 +563,6 @@ body {
     .card {
         width: 620px;
         height: 340px;
-    }
-
-    .official-logo {
-        max-width: 180px;
     }
 
     .share-section,
