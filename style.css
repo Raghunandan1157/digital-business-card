@@ -650,24 +650,27 @@ body {
         max-height: 100px;
     }
 
-    /* Person info */
+    /* Person info - keep the green accent like desktop */
     .person-info {
-        border-left: none;
-        padding-left: 0;
+        border-left: 3px solid #8CC63F;
+        padding-left: 12px;
         margin-bottom: 12px;
     }
 
     .person-info h1 {
-        font-size: 20px;
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
         font-weight: 700;
-        color: white;
-        margin-bottom: 4px;
+        color: #8CC63F;
+        margin-bottom: 2px;
+        letter-spacing: 0.5px;
     }
 
     .person-info h2 {
-        font-size: 14px;
-        font-weight: 500;
-        color: #e0f2f1;
+        font-size: 13px;
+        font-weight: 400;
+        color: #d0f0e0;
+        letter-spacing: 0.3px;
     }
 
     /* Contact details */
