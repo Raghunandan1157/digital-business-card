@@ -156,6 +156,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Copy links button functionality
+    const copyButton = document.getElementById('copy-button');
+    if (copyButton) {
+        copyButton.addEventListener('click', () => {
+            const cardData = {
+                name: inputs.name.value.trim(),
+                designation: inputs.designation.value.trim(),
+                phone: inputs.phone.value.trim(),
+                email: inputs.email.value.trim(),
+                location: inputs.location.value.trim()
+            };
+
+            const shareData = btoa(JSON.stringify(cardData));
+            const shareUrl = `${window.location.origin}${window.location.pathname}?data=${encodeURIComponent(shareData)}`;
+
+            const copyText = `${cardData.name} | ${cardData.designation}\n\nSave Contact: ${shareUrl}\nOpen Website: https://navachetanalivelihoods.com`;
+
+            navigator.clipboard.writeText(copyText)
+                .then(() => {
+                    copyButton.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Links';
+                    }, 2000);
+                })
+                .catch(() => {
+                    // Fallback
+                    const ta = document.createElement('textarea');
+                    ta.value = copyText;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    copyButton.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Links';
+                    }, 2000);
+                });
+        });
+    }
+
     // Show share options with two links
     function showCopyOption(shareUrl, vCardData) {
         const vCardBlob = new Blob([vCardData], { type: 'text/vcard' });

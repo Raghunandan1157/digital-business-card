@@ -383,8 +383,12 @@ body {
     justify-content: center;
 }
 
-.share-btn {
-    background: linear-gradient(135deg, #0d7068 0%, #5a9e1e 100%);
+.share-section {
+    gap: 12px;
+}
+
+.share-btn,
+.copy-btn {
     color: white;
     border: none;
     padding: 12px 24px;
@@ -399,16 +403,27 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.share-btn:hover {
+.share-btn {
+    background: linear-gradient(135deg, #0d7068 0%, #5a9e1e 100%);
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+}
+
+.share-btn:hover,
+.copy-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.share-btn:active {
+.share-btn:active,
+.copy-btn:active {
     transform: translateY(0);
 }
 
-.share-btn i {
+.share-btn i,
+.copy-btn i {
     font-size: 16px;
 }
 
@@ -722,8 +737,13 @@ body {
         font-size: 14px;
     }
 
-    /* Touch-friendly share button */
-    .share-btn {
+    /* Touch-friendly buttons */
+    .share-section {
+        flex-direction: column;
+    }
+
+    .share-btn,
+    .copy-btn {
         padding: 14px 20px;
         font-size: 15px;
         width: 100%;
