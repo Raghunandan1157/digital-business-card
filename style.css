@@ -624,99 +624,9 @@ body {
 }
 
 /* ==============================
-   RESPONSIVE - MOBILE (STACKED CARD LAYOUT)
+   RESPONSIVE - MOBILE (SAME CARD, JUST SCALED)
 ============================== */
 @media (max-width: 480px) {
-    /* Hide SVG background, use solid colors */
-    .card-bg-svg {
-        display: none;
-    }
-
-    .card {
-        height: auto;
-        min-height: 320px;
-        aspect-ratio: unset;
-        border-radius: 12px;
-    }
-
-    /* Stack card vertically: info on top, logo on bottom */
-    .card-content-layer {
-        flex-direction: column;
-    }
-
-    .card-left {
-        width: 100%;
-        padding: 20px 18px 15px;
-        background: #0d7068;
-    }
-
-    .card-right {
-        width: 100%;
-        height: 120px;
-        padding: 15px;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .official-logo {
-        max-width: 160px;
-        max-height: 100px;
-    }
-
-    /* Person info - keep the green accent like desktop */
-    .person-info {
-        border-left: 3px solid #8CC63F;
-        padding-left: 12px;
-        margin-bottom: 12px;
-    }
-
-    .person-info h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 22px;
-        font-weight: 700;
-        color: #8CC63F;
-        margin-bottom: 2px;
-        letter-spacing: 0.5px;
-    }
-
-    .person-info h2 {
-        font-size: 13px;
-        font-weight: 400;
-        color: #d0f0e0;
-        letter-spacing: 0.3px;
-    }
-
-    /* Contact details */
-    .contact-details {
-        gap: 10px;
-    }
-
-    .contact-row {
-        gap: 10px;
-    }
-
-    .contact-icon {
-        width: 22px;
-        height: 22px;
-        font-size: 10px;
-    }
-
-    .contact-row span {
-        font-size: 13px;
-        color: white;
-        line-height: 1.4;
-        font-weight: 500;
-    }
-
-    .address-block p {
-        font-size: 12px;
-        color: #e0f2f1;
-        line-height: 1.4;
-        margin-bottom: 6px;
-    }
-
     /* Hide JSON block on mobile */
     .json-block {
         display: none;
@@ -765,35 +675,6 @@ body {
    RESPONSIVE - EXTRA SMALL PHONES
 ============================== */
 @media (max-width: 360px) {
-    .card {
-        min-height: 300px;
-    }
-
-    .card-left {
-        padding: 18px 16px 12px;
-    }
-
-    .card-right {
-        height: 100px;
-    }
-
-    .official-logo {
-        max-width: 140px;
-        max-height: 80px;
-    }
-
-    .person-info h1 {
-        font-size: 18px;
-    }
-
-    .contact-row span {
-        font-size: 12px;
-    }
-
-    .address-block p {
-        font-size: 11px;
-    }
-
     .preview-panel {
         padding: 0 8px;
     }
@@ -803,81 +684,11 @@ body {
    RESPONSIVE - LANDSCAPE MOBILE
 ============================== */
 @media (max-width: 768px) and (orientation: landscape) {
-    .card-bg-svg {
-        display: none;
-    }
-
-    .card-content-layer {
-        flex-direction: column;
-    }
-
-    .card-left {
-        width: 100%;
-        padding: 18px 16px 12px;
-        background: #0d7068;
-    }
-
-    .card-right {
-        width: 100%;
-        height: 100px;
-        background: white;
-    }
-
-    .official-logo {
-        max-width: 160px;
-        max-height: 90px;
-    }
-
-    .person-info h1 {
-        font-size: 18px;
-    }
-
-    .contact-row span {
-        font-size: 13px;
-    }
-
-    .address-block p {
-        font-size: 12px;
-    }
-
     .json-block {
         display: none;
     }
 
-    .card {
-        width: 90vw;
-        min-height: 280px;
-    }
-
     .form-panel {
         padding: 18px;
-    }
-}
-
-@media (max-width: 667px) and (orientation: landscape) {
-    .card {
-        width: 95vw;
-        min-height: 260px;
-    }
-
-    .card-left {
-        padding: 16px 14px 10px;
-    }
-
-    .card-right {
-        height: 80px;
-    }
-
-    .official-logo {
-        max-width: 140px;
-        max-height: 70px;
-    }
-
-    .person-info h1 {
-        font-size: 16px;
-    }
-
-    .contact-row span {
-        font-size: 12px;
     }
 }
