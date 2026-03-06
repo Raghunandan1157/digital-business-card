@@ -221,7 +221,6 @@ body {
 /* ----- LEFT SIDE (Teal area with info) ----- */
 .card-left {
     width: 55%;
-    min-width: 55%;
     padding: 32px 30px 25px 35px;
     display: flex;
     flex-direction: column;
@@ -300,7 +299,6 @@ body {
 /* ----- RIGHT SIDE (White area with logo) ----- */
 .card-right {
     width: 45%;
-    min-width: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -596,13 +594,74 @@ body {
 
     .card-wrapper {
         width: 100%;
-        overflow: hidden;
     }
 
     .card {
-        width: 700px;
-        height: 380px;
-        transform-origin: top left;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 700 / 380;
+    }
+
+    .card-bg-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-content-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-left {
+        padding: 4.5% 4% 3.5% 5%;
+    }
+
+    .person-info h1 {
+        font-size: clamp(12px, 3.7vw, 26px);
+    }
+
+    .person-info h2 {
+        font-size: clamp(8px, 2vw, 14px);
+    }
+
+    .contact-details {
+        gap: clamp(4px, 1.5vw, 12px);
+    }
+
+    .contact-icon {
+        width: clamp(14px, 3.4vw, 24px);
+        height: clamp(14px, 3.4vw, 24px);
+        min-width: clamp(14px, 3.4vw, 24px);
+        font-size: clamp(6px, 1.4vw, 10px);
+    }
+
+    .contact-row {
+        gap: clamp(5px, 1.5vw, 12px);
+    }
+
+    .contact-row span {
+        font-size: clamp(7px, 1.85vw, 13px);
+    }
+
+    .address-block p {
+        font-size: clamp(6px, 1.6vw, 11.5px);
+        margin-bottom: clamp(2px, 0.8vw, 8px);
+    }
+
+    .person-info {
+        border-left-width: clamp(2px, 0.4vw, 3px);
+        padding-left: clamp(6px, 2vw, 14px);
+    }
+
+    .official-logo {
+        max-width: clamp(80px, 25vw, 200px);
+        max-height: clamp(100px, 30vw, 240px);
     }
 
     .qr-section,

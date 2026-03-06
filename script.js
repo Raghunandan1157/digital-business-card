@@ -115,25 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     updateCard();
 
-    // Scale card to fit container on small screens
-    const card = document.getElementById('business-card');
-    const cardWrapper = document.querySelector('.card-wrapper');
-
-    function scaleCard() {
-        const wrapperWidth = cardWrapper.offsetWidth;
-        if (wrapperWidth < 700) {
-            const scale = wrapperWidth / 700;
-            card.style.transform = `scale(${scale})`;
-            cardWrapper.style.height = (380 * scale) + 'px';
-        } else {
-            card.style.transform = '';
-            cardWrapper.style.height = '';
-        }
-    }
-
-    scaleCard();
-    window.addEventListener('resize', scaleCard);
-
     // Share button functionality
     const shareButton = document.getElementById('share-button');
     if (shareButton) {
